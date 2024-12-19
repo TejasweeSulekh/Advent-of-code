@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+
+
 int StringToInt(std::string &s){
     std::stringstream buf;
     int x = 0;
@@ -55,6 +57,7 @@ std::pair<int, bool> validityChecker(std::vector<int> line, bool inc){
 
 bool validityWithDampChecker(std::vector<int> line, bool inc, int damp, int row){
     std::pair<int, bool> check;
+    std::vector<int> oldLine = line;
     for(int i = damp; i >= 0; i--){
         if(line.size() <= 2){
             return true;
@@ -78,6 +81,12 @@ bool validityWithDampChecker(std::vector<int> line, bool inc, int damp, int row)
                 inc = line[0] < line[1];
             }
         }
+    }
+    // last try for first edge case
+    oldLine.erase(oldLine.begin());
+    inc = oldLine[0] < oldLine[1];
+    if(validityChecker(oldLine, inc).second){
+        return true;
     }
     return false;
 
@@ -127,12 +136,21 @@ int safetyChecker(std::vector<std::vector<int>> &input, int damp){
         // if(validityChecker(input[i], inc)){
         //     numSafe++;
         // }
-        
-        // // Brute force part 2
+        // Brute force part 2
+        // std::vector<std::vector<int>> edgeCase;
         // if(validityWithBruteForce(input[i], inc, damp)){
+        //     if(!validityWithDampChecker(input[i], inc, damp, i)){
+        //         edgeCase.emplace_back(input[i]);
+        //     }
         //     numSafe++;
         // }
-
+        // // Checking the differences between brute force and optimal to find edgecases
+        // for(auto it: edgeCase){
+        //     for(auto num: it){
+        //         std::cout << num << ' ';
+        //     }
+        //     std::cout << std::endl;
+        // }
         // my optimal for part 2        
         if(validityWithDampChecker(input[i], inc, damp, i)){
             numSafe++;
