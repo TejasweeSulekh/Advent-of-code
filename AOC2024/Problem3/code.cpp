@@ -55,14 +55,36 @@ bool checkValidity(std::string &s, int ptr, std::pair<int, int> &mulPair){
     return false;
 }
 
-long long multiplier(std::string &s){
+long long multiplier(std::string &s, bool& enabled){
     std::vector<char> lookup = {'m', 'u', 'l'};//look for a instance of mull occurance
+    std::vector<char> doLookup = {'d', 'o', '(', ')'};
+    std::vector<char> dontLookup = {'d', 'o', 'n', '\'', 't', '(', ')'}; // for storing special characters use backslash '\'
     int n = s.size();
     int counter = 0;
+    int Enabler = 0, Disabler = 0;
+    // bool enabled = true;
     long long accumulater = 0;
     std::pair<int, int> mulPair;
     for(int i = 0; i < n; i++){
         char c = s[i];
+        if(c == doLookup[Enabler]){
+            Enabler++;
+        }
+        else{
+            Enabler = 0;
+        }
+        if(c == dontLookup[Disabler]){
+            Disabler++;
+        }
+        else{
+            Disabler = 0;
+        }
+        if(Enabler == 4){ 
+            enabled = true;
+        }
+        if(Disabler == 7){ 
+            enabled = false;
+        }
         if(c == lookup[counter]){
             counter++;
         }
@@ -72,7 +94,9 @@ long long multiplier(std::string &s){
         if(counter == 3){
             counter = 0;
             if(checkValidity(s, i+1, mulPair)){
-                accumulater += mulPair.first * mulPair.second;
+                if(enabled){
+                    accumulater += mulPair.first * mulPair.second;
+                }
             }
         }
     }
@@ -85,8 +109,10 @@ int main(){
     std::ifstream f("input.txt");
     std::string s, input;
     long long result = 0;
+    bool enabled = true;
     while(getline(f, s)){
-        result += multiplier(s);
+        // std::cout << s << std::endl;
+        result += multiplier(s, enabled);
     }
     std::cout << "from the valid mul instructions the answer is " << result << std::endl;
     return 0;
