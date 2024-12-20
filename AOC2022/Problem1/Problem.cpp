@@ -21,6 +21,8 @@ long maxVal(vector<vector<int>> & input){
 
 
 int  main(){
+    
+    //Only part 1 implemented
     ifstream f("input.txt");
 
     if(!f.is_open()){
@@ -51,7 +53,7 @@ int  main(){
 
     result = maxVal(input);
 
-    cout << "The elf carrying the most calories has " << result << " calories on him" << endl;
+    cout << "The elf carrying the most calories has " << result << " calories on him" << endl; 
 
     return 0;
 }
