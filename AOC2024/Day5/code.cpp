@@ -6,34 +6,6 @@
 #include <vector>
 #include <sstream>
 
-bool validityChecker(std::vector<int> &commandLine, std::unordered_map<int, std::vector<int>> conditionalMap){
-    std::unordered_set<int> PageSet;
-    int n = commandLine.size();
-    for(int i = 0; i < n; i++){
-        int curr = commandLine[i];
-        for(int num : conditionalMap[curr]){ // Check if the values it should be before have not been seen before
-            if(PageSet.find(num) != PageSet.end()){
-                return false;
-            }
-        }
-        PageSet.insert(curr);
-    }
-    return true;
-}
-
-int midValidSummer(std::vector<std::vector<int>> inputCommands, std::unordered_map<int, std::vector<int>> conditionalMap){
-    int Accum = 0;
-    int n = inputCommands.size();
-    for(int i = 0; i < n; i++){
-        if(validityChecker(inputCommands[i], conditionalMap)){
-            int lineSize = inputCommands[i].size();
-            int middleIndex = lineSize/2; // This will be the index of the middle number as all the lines hold odd number of page updates
-            Accum += inputCommands[i][middleIndex];
-        }
-    }
-    return Accum;
-}
-
 // Parses through the string to seperate comma seperated integers
 std::vector<std::vector<int>> stringParser(std::vector<std::string> inputCommands){
     int n = inputCommands.size();
@@ -51,6 +23,79 @@ std::vector<std::vector<int>> stringParser(std::vector<std::string> inputCommand
         finalOutput.emplace_back(tempVec);
     }
     return finalOutput;
+}
+
+bool validityChecker(std::vector<int> &commandLine, std::unordered_map<int, std::vector<int>> conditionalMap, std::unordered_set<int> &PageSet){
+    int n = commandLine.size();
+    for(int i = 0; i < n; i++){
+        int curr = commandLine[i];
+        for(int num : conditionalMap[curr]){ // Check if the values it should be before have not been seen before
+            if(PageSet.find(num) != PageSet.end()){
+                PageSet.clear();
+                return false;
+            }
+        }
+        PageSet.insert(curr);
+    }
+    return true;
+}
+
+int midValidSummer(std::vector<std::vector<int>> inputCommands, std::unordered_map<int, std::vector<int>> conditionalMap){
+    int Accum = 0;
+    int n = inputCommands.size();
+    for(int i = 0; i < n; i++){
+        std::unordered_set<int> PageSet;
+        if(validityChecker(inputCommands[i], conditionalMap, PageSet)){
+            int lineSize = inputCommands[i].size();
+            int middleIndex = lineSize/2; // This will be the index of the middle number as all the lines hold odd number of page updates
+            Accum += inputCommands[i][middleIndex];
+        }
+    }
+    return Accum;
+}
+
+// 9354101422 -- Amit Chauhan
+
+void validator(std::vector<int> &commandLine, std::unordered_map<int, std::vector<int>> conditionalMap, std::unordered_set<int> &PageSet){
+    int n = commandLine.size();
+    std::vector<int> correctPages(n, 0);
+    std::unordered_map<int, int> priMap; //Stores the number and its conditional amount
+
+    for(int num: commandLine){
+        PageSet.insert(num);
+        priMap[num] = 0;
+    }
+
+    for(int i = 0; i < n; i++){
+        int curr = commandLine[i];
+        for(int num: conditionalMap[curr]){
+            if(PageSet.find(num) != PageSet.end()){
+                priMap[curr]++;
+            }
+        }
+    }
+    for(const auto& pair: priMap){
+        int val = pair.first;
+        int index = n - pair.second - 1;
+        correctPages[index] = val;
+    }
+    commandLine = correctPages;
+    return;
+}
+
+int midCorrecterSummer(std::vector<std::vector<int>> inputCommands, std::unordered_map<int, std::vector<int>> conditionalMap){
+    int Accum = 0;
+    int n = inputCommands.size();
+    for(int i = 0; i < n; i++){
+        std::unordered_set<int> PageSet;
+        if(!validityChecker(inputCommands[i], conditionalMap, PageSet)){ // If it is not valid
+            validator(inputCommands[i], conditionalMap, PageSet);
+            int lineSize = inputCommands[i].size();
+            int middleIndex = lineSize/2;
+            Accum += inputCommands[i][middleIndex];
+        }
+    }
+    return Accum;
 }
 
 int main(){
@@ -76,5 +121,7 @@ int main(){
     commands = stringParser(inputCommands);
     int result = midValidSummer(commands, conditionalMap);
     std::cout << "The sum of the valid mid values is " << result << std::endl; // Part 1
+    int newResult = midCorrecterSummer(commands, conditionalMap);
+    std::cout << "The sum of the newly validated mid values is " << newResult << std::endl; // Part 2
     return 0;
 }
