@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
 #include <vector>
 
 bool validChecker(std::vector<std::string> &input, char target, int row, int col){
