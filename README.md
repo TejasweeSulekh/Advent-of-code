@@ -32,11 +32,11 @@ Though I would like to complete the solutions for all the years to practice and 
 
 The progress made so far has been visualized for easy book keeping by the banners added below
 
-#### 🧑‍💻 Overall
+#### Overall
 
 ![Progress Bar to show how much progress has been made](https://progress-bar.xyz/12/?title=Progress)
 
-#### 🧑‍💻 By Year
+#### By Year
 
 ![Progress Bar to show how much progress has been made in the 2015 problems](https://progress-bar.xyz/0/?title=2015)
 ![Progress Bar to show how much progress has been made in the 2016 problems](https://progress-bar.xyz/0/?title=2016)
