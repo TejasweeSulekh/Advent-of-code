@@ -10,7 +10,7 @@ donate to him [here][https://adventofcode.com/2024/support]. If you want to hang
 coders, discuss about puzzles and solutions, or just have a look around, you can
 join the official subreddit: [r/adventofcode][https://www.reddit.com/r/adventofcode/]
 
-## About this repository
+## 🗒️ About this repository
 I got to know of `Advent-of-code` in 2023 and participating in 2024. In this repository you will find my solutions and walkthrough (to be added) for the puzzles as well as other miscellaneus stuff like helper scripts or other visualizations.
 
 **In each year's directory** you will find:
