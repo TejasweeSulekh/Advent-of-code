@@ -42,9 +42,9 @@ def calculate_progress(counts):
     return min(progress_percentage, 100)  # Cap the progress at 100%
 
 def calculate_overall_progress(year_counts, total_years):
-    expected_files = 25 * 2 * total_years
+    expected_files = 25 * 2 * total_years * 2
     # expected_files = 25 *2
-    actual_files = sum([data/2 for data in year_counts.values()])
+    actual_files = sum([data for data in year_counts.values()])
     overall_progress_percentage = min(math.floor((actual_files / expected_files) * 100), 100)
     return overall_progress_percentage
 
@@ -65,7 +65,7 @@ def count_files_in_years(root_directory, valid_extensions, dry_run=False):
             # Calculate that year's progress
             progress = calculate_progress(counts)
             # Append that to the dict
-            year_progress[subdir] = progress
+            year_progress[subdir[3:]] = progress
         
             if dry_run:
                 # print(f"Year: {subdir}, Progress: {year_progress[subdir]}")
@@ -92,6 +92,7 @@ def update_readme_with_progress(readme_path, year_progress, overall_progress):
 
     with open(readme_path, 'w') as file:
         # Write the updated content to the file
+        print(readme_content)
         file.write(readme_content)
 
 def commit_readme_changes(commit_message, readme_path):
@@ -155,10 +156,12 @@ def main():
 
     overall_progress = calculate_overall_progress(year_progress, total_years)
     
-    readme_path = root_directory + "/README.md"
+    dummyAddress = "/home/tejaswee/VScode/cpp/files/Advent-of-code/"
+    
+    readme_path = dummyAddress + "./README.md"
     update_readme_with_progress(readme_path, year_progress, overall_progress)
-    commit_message = "Updated README to reflect current progress using pre-push git hook."
-    commit_readme_changes(commit_message, readme_path)
+    # commit_message = "Updated README to reflect current progress using pre-push git hook."
+    # commit_readme_changes(commit_message, readme_path)
 
 if __name__ == "__main__":
     main()
