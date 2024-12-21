@@ -40,22 +40,6 @@ bool validityChecker(std::vector<int> &commandLine, std::unordered_map<int, std:
     return true;
 }
 
-int midValidSummer(std::vector<std::vector<int>> inputCommands, std::unordered_map<int, std::vector<int>> conditionalMap){
-    int Accum = 0;
-    int n = inputCommands.size();
-    for(int i = 0; i < n; i++){
-        std::unordered_set<int> PageSet;
-        if(validityChecker(inputCommands[i], conditionalMap, PageSet)){
-            int lineSize = inputCommands[i].size();
-            int middleIndex = lineSize/2; // This will be the index of the middle number as all the lines hold odd number of page updates
-            Accum += inputCommands[i][middleIndex];
-        }
-    }
-    return Accum;
-}
-
-// 9354101422 -- Amit Chauhan
-
 void validator(std::vector<int> &commandLine, std::unordered_map<int, std::vector<int>> conditionalMap, std::unordered_set<int> &PageSet){
     int n = commandLine.size();
     std::vector<int> correctPages(n, 0);
@@ -119,8 +103,6 @@ int main(){
     }
     std::vector<std::vector<int>> commands;
     commands = stringParser(inputCommands);
-    int result = midValidSummer(commands, conditionalMap);
-    std::cout << "The sum of the valid mid values is " << result << std::endl; // Part 1
     int newResult = midCorrecterSummer(commands, conditionalMap);
     std::cout << "The sum of the newly validated mid values is " << newResult << std::endl; // Part 2
     return 0;
