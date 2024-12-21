@@ -5,7 +5,7 @@ This is the testing ground for now:
 
 #### Overall
 
-![Progress Bar to show how much progress has been made](https://progress-bar.xyz/1/?title=Progress)
+![Progress Bar to show how much progress has been made](https://progress-bar.xyz/12/?title=Progress)
 
 #### By Year
 
