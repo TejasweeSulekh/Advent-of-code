@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 
-
-
 int StringToInt(std::string &s){
     std::stringstream buf;
     int x = 0;
@@ -92,34 +90,6 @@ bool validityWithDampChecker(std::vector<int> line, bool inc, int damp, int row)
 
 }
 
-bool validityWithBruteForce(std::vector<int> line, bool inc, int damp){
-    std::pair<int, bool> check;
-    for(int i = damp; i >= 0; i--){
-        if(line.size() <= 2){
-            return true;
-        }
-        check = validityChecker(line, inc);
-        if(check.second){
-            return true;
-        }
-        else{
-            for(int i = 0; i < line.size(); i++){
-                std::vector<int> tempLine = line;
-                tempLine.erase(tempLine.begin() + i);
-                bool tempInc = inc;
-                if(i < line.size()-1){
-                    tempInc = tempLine[0] < tempLine[1];
-                }
-                check = validityChecker(tempLine, tempInc);
-                if(check.second){
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
-}
-
 int safetyChecker(std::vector<std::vector<int>> &input, int damp){
     int n = input.size();
     int numSafe = 0;
@@ -132,25 +102,6 @@ int safetyChecker(std::vector<std::vector<int>> &input, int damp){
         else{
             inc = input[i][0] < input[i][1];
         }
-        // // Comment toggle for part 1
-        // if(validityChecker(input[i], inc)){
-        //     numSafe++;
-        // }
-        // Brute force part 2
-        // std::vector<std::vector<int>> edgeCase;
-        // if(validityWithBruteForce(input[i], inc, damp)){
-        //     if(!validityWithDampChecker(input[i], inc, damp, i)){
-        //         edgeCase.emplace_back(input[i]);
-        //     }
-        //     numSafe++;
-        // }
-        // // Checking the differences between brute force and optimal to find edgecases
-        // for(auto it: edgeCase){
-        //     for(auto num: it){
-        //         std::cout << num << ' ';
-        //     }
-        //     std::cout << std::endl;
-        // }
         // my optimal for part 2        
         if(validityWithDampChecker(input[i], inc, damp, i)){
             numSafe++;

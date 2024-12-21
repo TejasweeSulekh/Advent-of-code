@@ -57,32 +57,32 @@ bool checkValidity(std::string &s, int ptr, std::pair<int, int> &mulPair){
 
 long long multiplier(std::string &s, bool& enabled){
     std::vector<char> lookup = {'m', 'u', 'l'};//look for a instance of mull occurance
-    std::vector<char> doLookup = {'d', 'o', '(', ')'};
-    std::vector<char> dontLookup = {'d', 'o', 'n', '\'', 't', '(', ')'}; // for storing special characters use backslash '\'
+    std::vector<char> do_Lookup = {'d', 'o', '(', ')'};
+    std::vector<char> dont_Lookup = {'d', 'o', 'n', '\'', 't', '(', ')'}; // for storing special characters use backslash '\'
     int n = s.size();
     int counter = 0;
-    int Enabler = 0, Disabler = 0;
+    int doCounter = 0, dontCounter = 0;
     // bool enabled = true;
     long long accumulater = 0;
     std::pair<int, int> mulPair;
     for(int i = 0; i < n; i++){
         char c = s[i];
-        if(c == doLookup[Enabler]){
-            Enabler++;
+        if(c == do_Lookup[doCounter]){
+            doCounter++;
         }
         else{
-            Enabler = 0;
+            doCounter = 0;
         }
-        if(c == dontLookup[Disabler]){
-            Disabler++;
+        if(c == dont_Lookup[dontCounter]){
+            dontCounter++;
         }
         else{
-            Disabler = 0;
+            dontCounter = 0;
         }
-        if(Enabler == 4){ 
+        if(doCounter == 4){ 
             enabled = true;
         }
-        if(Disabler == 7){ 
+        if(dontCounter == 7){ 
             enabled = false;
         }
         if(c == lookup[counter]){
