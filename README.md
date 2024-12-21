@@ -10,17 +10,25 @@ donate to him [here][https://adventofcode.com/2024/support]. If you want to hang
 coders, discuss about puzzles and solutions, or just have a look around, you can
 join the official subreddit: [r/adventofcode][https://www.reddit.com/r/adventofcode/]
 
-## 🗒️ About this repository
-I got to know of `Advent-of-code` in 2023 and participating in 2024. In this repository you will find my solutions and walkthrough (to be added) for the puzzles as well as other miscellaneus stuff like helper scripts or other visualizations.
+## Current Plan
+The main reason for doing this is one to see the christmas tree light up 😊
 
-**In each year's directory** you will find:
-Day by day separation of solutions for each day's puzzle
-- `README.md`: Containing an in depth walkthrough of my solution along with the data structure and algorithms used
-- `Part_1.ext` or `Part_2.ext`: For each day there are two puzzles given the same input, here these will be the files containing the solution for the puzzle. While `.ext` will be the extension for the corresponding language that I decide to use for that year like `.cpp` for 2024
-- `/lib`: small library or utilities that I make for the puzzle if there is any reccuring concept in the problems will be in this directory
-- `/misc`: if there is anything else interesting or relevant will be stored in this directory
+Though I would like to complete the solutions for all the years to practice and expand my skill levels. Along with this I want to try assigning year its programming language as there are some languages that I would love to be more familiar with. I will keep updating the table below accordingly with whichever language I decide for any year. 
 
+| Year | Programming Language |
+|------|----------------------|
+| 2015 | tbd                  |
+| 2016 | tbd                  |
+| 2017 | tbd                  |
+| 2018 | tbd                  |
+| 2019 | tbd                  |
+| 2020 | tbd                  |
+| 2021 | tbd                  |
+| 2022 | <img src = "https://commons.wikimedia.org/wiki/File:ISO_C%2B%2B_Logo.svg#/media/File:ISO_C++_Logo.svg" alt="C++" height="18" style="vertical-align: text-bottom;"/> C++|
+| 2023 | tbd                  |
+| 2024 | <img src = "https://commons.wikimedia.org/wiki/File:ISO_C%2B%2B_Logo.svg#/media/File:ISO_C++_Logo.svg" alt="C++" height="18" style="vertical-align: text-bottom;"/> C++|
 
+*tbd - to be decided
 
 #### Overall
 
@@ -38,3 +46,13 @@ Day by day separation of solutions for each day's puzzle
 ![Progress Bar to show how much progress has been made in the 2022 problems](https://progress-bar.xyz/2/?title=2022)
 ![Progress Bar to show how much progress has been made in the 2023 problems](https://progress-bar.xyz/0/?title=2023)
 ![Progress Bar to show how much progress has been made in the 2024 problems](https://progress-bar.xyz/22/?title=2024)
+
+## 🗒️ About this repository
+I got to know of `Advent-of-code` in 2023 and participating in 2024. In this repository you will find my solutions and walkthrough (to be added) for the puzzles as well as other miscellaneus stuff like helper scripts or other visualizations.
+
+**In each year's directory** you will find:
+Day by day separation of solutions for each day's puzzle
+- `README.md`: Containing an in depth walkthrough of my solution along with the data structure and algorithms used
+- `Part_1.ext` or `Part_2.ext`: For each day there are two puzzles given the same input, here these will be the files containing the solution for the puzzle. While `.ext` will be the extension for the corresponding language that I decide to use for that year like `.cpp` for 2024
+- `/lib`: small library or utilities that I make for the puzzle if there is any reccuring concept in the problems will be in this directory
+- `/misc`: if there is anything else interesting or relevant will be stored in this directory
