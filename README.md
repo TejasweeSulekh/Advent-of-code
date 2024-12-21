@@ -2,13 +2,13 @@
 This is a personal repository which stores my solutions for AOC. I plan on solving all the years AOC .
 
 ## 💻 About Advent of Code 
-[Advent of code][https://adventofcode.com/] is an Advent Calendar of programming puzzles for a variety of skill set and skill levels that can be solved in any programming language you like. One programming puzzle a day is released from 1st
+[Advent of code](https://adventofcode.com/) is an Advent Calendar of programming puzzles for a variety of skill set and skill levels that can be solved in any programming language you like. One programming puzzle a day is released from 1st
 to 25th December, divided in two parts (the second of which is unlocked after
-solving the first). Advent of Code is created by [Eric Wastl][https://was.tl/], and is
+solving the first). Advent of Code is created by [Eric Wastl](https://was.tl/), and is
 100% free. If you like Advent Of Code and want to support its creator, you can
-donate to him [here][https://adventofcode.com/2024/support]. If you want to hang out with other fellow
+donate to him [here](https://adventofcode.com/2024/support). If you want to hang out with other fellow
 coders, discuss about puzzles and solutions, or just have a look around, you can
-join the official subreddit: [r/adventofcode][https://www.reddit.com/r/adventofcode/]
+join the official subreddit: [r/adventofcode](https://www.reddit.com/r/adventofcode/)
 
 ## 💡 Current Plan
 The main reason for doing this is one to see the christmas tree light up 😊
