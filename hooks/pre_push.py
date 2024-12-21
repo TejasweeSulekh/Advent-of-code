@@ -156,12 +156,12 @@ def main():
 
     overall_progress = calculate_overall_progress(year_progress, total_years)
     
-    dummyAddress = "/home/tejaswee/VScode/cpp/files/Advent-of-code/"
+    # dummyAddress = "/home/tejaswee/VScode/cpp/files/Advent-of-code/"
     
-    readme_path = dummyAddress + "./README.md"
+    readme_path = "./README.md"
     update_readme_with_progress(readme_path, year_progress, overall_progress)
-    # commit_message = "Updated README to reflect current progress using pre-push git hook."
-    # commit_readme_changes(commit_message, readme_path)
+    commit_message = "Updated README to reflect current progress using pre-push git hook."
+    commit_readme_changes(commit_message, readme_path)
 
 if __name__ == "__main__":
     main()
