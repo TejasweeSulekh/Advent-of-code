@@ -24,9 +24,9 @@ Though I would like to complete the solutions for all the years to practice and 
 | 2019 | tbd                  |
 | 2020 | tbd                  |
 | 2021 | tbd                  |
-| 2022 | <img src = "https://commons.wikimedia.org/wiki/File:ISO_C%2B%2B_Logo.svg#/media/File:ISO_C++_Logo.svg" alt="C++" height="18" style="vertical-align: text-bottom;"/> C++|
+| 2022 | <img src = "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++" height="18" style="vertical-align: text-bottom;"/> C++|
 | 2023 | tbd                  |
-| 2024 | <img src = "https://commons.wikimedia.org/wiki/File:ISO_C%2B%2B_Logo.svg#/media/File:ISO_C++_Logo.svg" alt="C++" height="18" style="vertical-align: text-bottom;"/> C++|
+| 2024 | <img src = "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++" height="18" style="vertical-align: text-bottom;"/> C++|
 
 *tbd - to be decided
 
