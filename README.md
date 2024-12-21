@@ -10,7 +10,7 @@ donate to him [here][https://adventofcode.com/2024/support]. If you want to hang
 coders, discuss about puzzles and solutions, or just have a look around, you can
 join the official subreddit: [r/adventofcode][https://www.reddit.com/r/adventofcode/]
 
-## Current Plan
+## 💡 Current Plan
 The main reason for doing this is one to see the christmas tree light up 😊
 
 Though I would like to complete the solutions for all the years to practice and expand my skill levels. Along with this I want to try assigning year its programming language as there are some languages that I would love to be more familiar with. I will keep updating the table below accordingly with whichever language I decide for any year. 
@@ -30,11 +30,13 @@ Though I would like to complete the solutions for all the years to practice and 
 
 *tbd - to be decided
 
-#### Overall
+The progress made so far has been visualized for easy book keeping by the banners added below
+
+#### 🧑‍💻 Overall
 
 ![Progress Bar to show how much progress has been made](https://progress-bar.xyz/12/?title=Progress)
 
-#### By Year
+#### 🧑‍💻 By Year
 
 ![Progress Bar to show how much progress has been made in the 2015 problems](https://progress-bar.xyz/0/?title=2015)
 ![Progress Bar to show how much progress has been made in the 2016 problems](https://progress-bar.xyz/0/?title=2016)
