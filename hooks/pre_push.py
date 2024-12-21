@@ -134,28 +134,24 @@ def main():
     parser = argparse.ArgumentParser(description='Script for updating progress and formatting code.')
     parser.add_argument('--dry_run', '-d', action='store_true', help='Run in dry-run mode (no actual changes will be made)')
     args = parser.parse_args()
-    drier = True
-    # root_directory = "./"
     root_directory = "."
     # The extensions that will be considered for the counting
     valid_extensions = ['.cpp', '.java', '.py', '.rs']
 
     # year_progress = count_files_in_years(root_directory, valid_extensions, dry_run=args.dry_run)
-    year_progress = count_files_in_years(root_directory, valid_extensions, drier)
+    year_progress = count_files_in_years(root_directory, valid_extensions)
     # Total years which are being done
     total_years = len(year_progress)
 
     years = ['2022', '2023', '2024']
     # formatted_files = run_clang_format(root_directory, ['.cpp', '.hpp'], target_directories, dry_run=args.dry_run)
-    formatted_files = run_clang_format(root_directory, ['.cpp', '.hpp'], years, drier)
+    formatted_files = run_clang_format(root_directory, ['.cpp', '.hpp'], years)
     
     # commit_formatted_files(formatted_files, r"Formatted the files using \`clang-format\`.", dry_run=args.dry_run)
-    commit_formatted_files(formatted_files, r"Formatted the files using \`clang-format\`.", drier)
+    commit_formatted_files(formatted_files, r"Formatted the files using \`clang-format\`.")
     
 
     overall_progress = calculate_overall_progress(year_progress, total_years)
-    
-    # dummyAddress = "/home/tejaswee/VScode/cpp/files/Advent-of-code/"
     
     readme_path = "./README.md"
     update_readme_with_progress(readme_path, year_progress, overall_progress)
