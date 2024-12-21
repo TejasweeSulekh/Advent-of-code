@@ -6,7 +6,6 @@ import subprocess
 import math
 
 def is_file_tracked(file_path):
-    file_path = "." + file_path[16:]
     try:
         # Check if the file is tracked by Git
         subprocess.check_output(['git', 'ls-files', '--error-unmatch', file_path], stderr=subprocess.STDOUT)
@@ -29,7 +28,7 @@ def count_files(directory, valid_extensions):
                 file_path = os.path.join(root, filename)
 
                 # Check if the file is tracked and has a valid extension 
-                if is_file_tracked(file_path) or any(filename.lower().endswith(ext) for ext in valid_extensions):
+                if is_file_tracked(file_path) and any(filename.lower().endswith(ext) for ext in valid_extensions):
                     file_count[part[0]] += 1
 
     return file_count
