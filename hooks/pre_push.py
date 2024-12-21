@@ -35,13 +35,15 @@ def calculate_progress(counts):
     return min(progress_percentage, 100)  # Cap the progress at 100%
 
 def calculate_overall_progress(year_counts, total_years):
-    expected_files = 25 * 2 * total_years
+    # expected_files = 25 * 2 * total_years
+    expected_files = 25 *2
     actual_files = sum([data for data in year_counts.values()])
     overall_progress_percentage = min(math.floor((actual_files / expected_files) * 100), 100)
     return overall_progress_percentage
 
 def count_files_in_years(root_directory, valid_extensions, dry_run=False):
-    year_pattern = re.compile(r'^\d{4}$')
+    year_pattern = re.compile(r'^AOC\d{4}$') # Here '^' and '\d{num}' represent the starting of the string, digits (num is the number of digits)
+                                             # While '$' represent the ending of the string
     year_progress = {}
 
     for subdir in os.listdir(root_directory):
@@ -102,20 +104,27 @@ def main():
     parser = argparse.ArgumentParser(description='Script for updating progress and formatting code.')
     parser.add_argument('--dry_run', '-d', action='store_true', help='Run in dry-run mode (no actual changes will be made)')
     args = parser.parse_args()
-
-    root_directory = "."
+    drier = True
+    root_directory = "./Advent-of-code"
+    # The extensions that will be considered for the counting
     valid_extensions = ['.cpp', '.java', '.py', '.rs']
 
-    year_progress = count_files_in_years(root_directory, valid_extensions, dry_run=args.dry_run)
+    # year_progress = count_files_in_years(root_directory, valid_extensions, dry_run=args.dry_run)
+    year_progress = count_files_in_years(root_directory, valid_extensions, drier)
+    # Total years which are being done
     total_years = len(year_progress)
-
+    
     target_directories = ['2022', '2023/src', '2024/src']
-    formatted_files = run_clang_format(root_directory, ['.cpp', '.hpp'], target_directories, dry_run=args.dry_run)
-    commit_formatted_files(formatted_files, r"Formatted the files using \`clang-format\`.", dry_run=args.dry_run)
+    # formatted_files = run_clang_format(root_directory, ['.cpp', '.hpp'], target_directories, dry_run=args.dry_run)
+    formatted_files = run_clang_format(root_directory, ['.cpp', '.hpp'], target_directories, drier)
+    
+    # commit_formatted_files(formatted_files, r"Formatted the files using \`clang-format\`.", dry_run=args.dry_run)
+    commit_formatted_files(formatted_files, r"Formatted the files using \`clang-format\`.", drier)
+    
 
     overall_progress = calculate_overall_progress(year_progress, total_years)
 
-    readme_path = "./README.md"
+    readme_path = root_directory + "/README.md"
     update_readme_with_progress(readme_path, year_progress, overall_progress)
     commit_message = "Updated README to reflect current progress using pre-push git hook."
     commit_readme_changes(commit_message, readme_path)

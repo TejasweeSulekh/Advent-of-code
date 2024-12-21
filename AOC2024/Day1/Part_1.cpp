@@ -4,8 +4,6 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
-#include <unordered_map>
-#include <unordered_set>
 
 int stringToint(std::string &s){
     std::stringstream buf;
@@ -26,26 +24,6 @@ long long DiffBetweenLists(std::vector<int> input1, std::vector<int> input2){
     }
     return distance;
 }
-
-long long similarityScoreFinder(std::vector<int> &input1, std::vector<int> &input2){
-    long long similarityScore = 0;
-    long temp = 0;
-    int n = input1.size();
-    std::unordered_map<int, int> mpp1, mpp2;
-    std::unordered_set<int> stt;
-    for(int i = 0; i < n; i++){
-        // Making hash maps for the number of times a number appears in each list
-        mpp1[input1[i]]++;
-        mpp2[input2[i]]++;
-        stt.insert(input1[i]);
-    }
-    for(auto &it: stt){
-        temp = mpp1[it]*mpp2[it]*it;
-        similarityScore += temp;
-    }
-    return similarityScore;
-}
-
 
 
 int main(){
@@ -70,8 +48,5 @@ int main(){
     f.close();
     long long distance = DiffBetweenLists(input1, input2); // Task 1
     std::cout << "The distance between the lists is " << distance << std::endl;
-    long long simScore = 0;
-    simScore = similarityScoreFinder(input1, input2); // Task 2
-    std::cout << "The similarity score of the list is " << simScore << std::endl;
     return 0;
 }
