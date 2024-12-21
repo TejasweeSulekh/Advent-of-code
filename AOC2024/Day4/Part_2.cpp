@@ -38,31 +38,6 @@ bool xmasHelper(std::vector<std::string> &input, int row, int col, int delRow, i
     return false;
 }
 
-int checkOccurences(std::vector<std::string> &input, int row, int col){
-    int occurences = 0;
-    std::vector<int> rowPos = {0, 1, 0, -1, -1, 1, 1, -1};
-    std::vector<int> colPos = {1, 0, -1, 0, 1, 1, -1, -1};
-    std::vector<char> lookup = {'X', 'M', 'A', 'S'}; // For part 1
-    int cnt = 4;
-
-    for(int i = 0; i < 8; i++){
-        bool temp = xmasHelper(input, row, col, rowPos[i], colPos[i], occurences, cnt, lookup);
-    }
-    return occurences;
-}
-
-int xmasFinder(std::vector<std::string> &input, int n){
-    int totalXMAS = 0;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(input[i][j] == 'X'){
-                totalXMAS += checkOccurences(input, i, j);
-            }
-        }
-    }
-    return totalXMAS;
-}
-
 void setOrient(int &rowDiff, int &colDiff, int &rowLim, int &rowStart, int &colLim, int &colStart, bool forwards, bool horizontal){
     if(horizontal){
         rowDiff = 2;
@@ -157,8 +132,6 @@ int main(){
         input.emplace_back(s);
         n += 1;
     }
-    int result = xmasFinder(input, n);
-    std::cout << "The total occurences of XMAS is " << result << std::endl; // Part 1
     int x_mas = XmasPart2(input, n);
     std::cout << "The total occurences of X-MAS is " << x_mas << std::endl; // Part 2
     return 0;
