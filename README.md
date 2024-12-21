@@ -30,7 +30,7 @@ Though I would like to complete the solutions for all the years to practice and 
 
 *tbd - to be decided
 
-The progress made so far has been visualized for easy book keeping by the banners added below. An idea I got from [here][https://github.com/wermos/advent-of-code]
+The progress made so far has been visualized for easy book keeping by the banners added below. An idea I got from [here][https://github.com/wermos/advent-of-code].
 
 #### Overall
 
