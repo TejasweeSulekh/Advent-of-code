@@ -137,7 +137,7 @@ def main():
     args = parser.parse_args()
     drier = True
     # root_directory = "./"
-    root_directory = "./Advent-of-code"
+    root_directory = "."
     # The extensions that will be considered for the counting
     valid_extensions = ['.cpp', '.java', '.py', '.rs']
 
