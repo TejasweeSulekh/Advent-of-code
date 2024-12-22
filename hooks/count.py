@@ -91,7 +91,7 @@ def update_readme_with_progress(readme_path, year_progress, overall_progress):
 
     with open(readme_path, 'w') as file:
         # Write the updated content to the file
-        print(readme_content)
+        #print(readme_content)
         file.write(readme_content)
 
 def commit_readme_changes(commit_message, readme_path):
