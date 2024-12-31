@@ -34,7 +34,7 @@ The progress made so far has been visualized for easy book keeping by the banner
 
 #### Overall
 
-![Progress Bar to show how much progress has been made](https://progress-bar.xyz/20/?title=Progress)
+![Progress Bar to show how much progress has been made](https://progress-bar.xyz/21/?title=Progress)
 
 #### By Year
 
@@ -47,7 +47,7 @@ The progress made so far has been visualized for easy book keeping by the banner
 ![Progress Bar to show how much progress has been made in the 2021 problems](https://progress-bar.xyz/0/?title=2021)
 ![Progress Bar to show how much progress has been made in the 2022 problems](https://progress-bar.xyz/2/?title=2022)
 ![Progress Bar to show how much progress has been made in the 2023 problems](https://progress-bar.xyz/0/?title=2023)
-![Progress Bar to show how much progress has been made in the 2024 problems](https://progress-bar.xyz/38/?title=2024)
+![Progress Bar to show how much progress has been made in the 2024 problems](https://progress-bar.xyz/40/?title=2024)
 
 ## 🗒️ About this repository
 I got to know of `Advent-of-code` in 2023 and participating in 2024. In this repository you will find my solutions and walkthrough (to be added) for the puzzles as well as other miscellaneus stuff like helper scripts or other visualizations.
