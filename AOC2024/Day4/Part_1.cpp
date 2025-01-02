@@ -20,7 +20,7 @@ bool validChecker(std::vector<std::string> &input, char target, int row, int col
     return false;
 }
 
-bool xmasHelper(std::vector<std::string> &input, int row, int col, int delRow, int delCol, int &occurences, int cnt
+bool xmasHelper(std::vector<std::string> &input, int row, int col, int delRow, int delCol, int &occurrences, int cnt
                 , std::vector<char> &lookup){
     int ptr = 0;
     for(int i = 0; i < cnt; i++){
@@ -32,23 +32,23 @@ bool xmasHelper(std::vector<std::string> &input, int row, int col, int delRow, i
         }
     }
     if(ptr == cnt){
-        occurences++;
+        occurrences++;
         return true;
     }
     return false;
 }
 
-int checkOccurences(std::vector<std::string> &input, int row, int col){
-    int occurences = 0;
+int checkoccurrences(std::vector<std::string> &input, int row, int col){
+    int occurrences = 0;
     std::vector<int> rowPos = {0, 1, 0, -1, -1, 1, 1, -1};
     std::vector<int> colPos = {1, 0, -1, 0, 1, 1, -1, -1};
     std::vector<char> lookup = {'X', 'M', 'A', 'S'}; // For part 1
     int cnt = 4;
 
     for(int i = 0; i < 8; i++){
-        bool temp = xmasHelper(input, row, col, rowPos[i], colPos[i], occurences, cnt, lookup);
+        bool temp = xmasHelper(input, row, col, rowPos[i], colPos[i], occurrences, cnt, lookup);
     }
-    return occurences;
+    return occurrences;
 }
 
 int xmasFinder(std::vector<std::string> &input, int n){
@@ -56,7 +56,7 @@ int xmasFinder(std::vector<std::string> &input, int n){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
             if(input[i][j] == 'X'){
-                totalXMAS += checkOccurences(input, i, j);
+                totalXMAS += checkoccurrences(input, i, j);
             }
         }
     }
@@ -73,6 +73,6 @@ int main(){
         n += 1;
     }
     int result = xmasFinder(input, n);
-    std::cout << "The total occurences of XMAS is " << result << std::endl; // Part 1
+    std::cout << "The total occurrences of XMAS is " << result << std::endl; // Part 1
     return 0;
 }

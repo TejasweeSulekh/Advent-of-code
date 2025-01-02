@@ -20,7 +20,7 @@ bool validChecker(std::vector<std::string> &input, char target, int row, int col
     return false;
 }
 
-bool xmasHelper(std::vector<std::string> &input, int row, int col, int delRow, int delCol, int &occurences, int cnt
+bool xmasHelper(std::vector<std::string> &input, int row, int col, int delRow, int delCol, int &occurrences, int cnt
                 , std::vector<char> &lookup){
     int ptr = 0;
     for(int i = 0; i < cnt; i++){
@@ -32,7 +32,7 @@ bool xmasHelper(std::vector<std::string> &input, int row, int col, int delRow, i
         }
     }
     if(ptr == cnt){
-        occurences++;
+        occurrences++;
         return true;
     }
     return false;
@@ -71,7 +71,7 @@ void setOrient(int &rowDiff, int &colDiff, int &rowLim, int &rowStart, int &colL
     }
 }
 
-void XmasHelper2(std::vector<std::string> &input, int &occurences, std::vector<char> &lookup, std::vector<int> &directions, bool horizontal, bool forwards){
+void XmasHelper2(std::vector<std::string> &input, int &occurrences, std::vector<char> &lookup, std::vector<int> &directions, bool horizontal, bool forwards){
     int maxRow = input.size(), maxCol = input[0].size();
     int cnt = 3; // The amount of words we are looking for
     int dummyCount = 0;
@@ -83,7 +83,7 @@ void XmasHelper2(std::vector<std::string> &input, int &occurences, std::vector<c
             bool X_MAS = xmasHelper(input, row, col, directions[0], directions[1], dummyCount, cnt, lookup);
             X_MAS &= xmasHelper(input, row + rowDiff, col + colDiff, directions[2], directions[3], dummyCount, cnt, lookup); // Checks for the presence of the second MAS
             if(X_MAS){
-                occurences++;
+                occurrences++;
             }
         }
     }
@@ -133,6 +133,6 @@ int main(){
         n += 1;
     }
     int x_mas = XmasPart2(input, n);
-    std::cout << "The total occurences of X-MAS is " << x_mas << std::endl; // Part 2
+    std::cout << "The total occurrences of X-MAS is " << x_mas << std::endl; // Part 2
     return 0;
 }
